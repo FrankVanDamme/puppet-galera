@@ -25,7 +25,7 @@ galera::default_options:
     wsrep_sst_method: "<%= $wsrep_sst_method %>"
     wsrep_sst_receive_address: "<%= $local_ip %>"
 galera::epel_needed: false
-galera::galera_master: "%{fqdn}"
+galera::galera_master: "%{networking.fqdn}"
 galera::local_ip: "%{networking.ip}"
 galera::manage_additional_packages: true
 galera::mysql_port: 3306
