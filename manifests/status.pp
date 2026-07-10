@@ -45,10 +45,11 @@ class galera::status (
   }
 
   file { $galera::status_script:
-    content => epp('galera/clustercheck.epp'),
-    owner   => $galera::status_system_user,
-    group   => $galera::status_system_group,
-    mode    => '0500',
+    content   => epp('galera/clustercheck.epp'),
+    owner     => $galera::status_system_user,
+    group     => $galera::status_system_group,
+    mode      => '0500',
+    show_diff => false,  # contains password!
   }
 
   case $galera::status_check_type {

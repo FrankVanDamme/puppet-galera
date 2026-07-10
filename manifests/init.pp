@@ -604,7 +604,7 @@ class galera (
         path    => '/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin',
         command => "echo \"${my_cnf}\" > ${facts['root_home']}/.my.cnf",
         onlyif  => [
-          "mysql --user=root --password=${root_password} -e 'select count(1);'",
+          "mysql --user=root --password='${root_password}' -e 'select count(1);'",
           "test `cat ${facts['root_home']}/.my.cnf | grep -c \"password='${root_password}'\"` -eq 0",
         ],
         require => Service[$params['mysql_service_name']],
